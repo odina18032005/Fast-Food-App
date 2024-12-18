@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -82,9 +83,9 @@ public class SecurityConfig {
     @Bean("urlBasedCorsConfig")
     public CorsConfigurationSource configurationSource(){
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("*"));
-        configuration.setAllowedMethods(List.of("*"));
-        configuration.setAllowedHeaders(List.of("*"));
+        configuration.setAllowedOrigins(List.of("/*"));
+        configuration.setAllowedMethods(List.of("/*"));
+        configuration.setAllowedHeaders(List.of("/*"));
         configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
